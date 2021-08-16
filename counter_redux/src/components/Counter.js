@@ -7,8 +7,9 @@ class Counter extends Component {
 			<div>
 				<h1>Counter: {this.props.ctr}</h1>
 				<div>
-					<button>Add</button>
-					<button>Remove</button>
+					<button onClick={this.props.onIncCounter}>Add</button>
+					<button onClick={this.props.onDecCounter}>Remove</button>
+					<button onClick={this.props.onResetCounter}>Reset</button>
 				</div>
 			</div>
 		);
@@ -21,4 +22,12 @@ const mapStatetoProps = (state) => {
 	};
 };
 
-export default connect(mapStatetoProps)(Counter);
+const mapDispateToProps = (dispatch) => {
+	return {
+		onIncCounter: () => dispatch({ type: "INCREMENT" }),
+		onDecCounter: () => dispatch({ type: "DECREASE" }),
+		onResetCounter: () => dispatch({ type: "RESET" }),
+	};
+};
+
+export default connect(mapStatetoProps, mapDispateToProps)(Counter);

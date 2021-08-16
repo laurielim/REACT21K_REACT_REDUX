@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actionTypes from "../actions/actions";
 
 class Counter extends Component {
 	render() {
@@ -24,9 +25,9 @@ const mapStatetoProps = (state) => {
 
 const mapDispateToProps = (dispatch) => {
 	return {
-		onIncCounter: () => dispatch({ type: "INCREMENT" }),
-		onDecCounter: () => dispatch({ type: "DECREASE" }),
-		onResetCounter: () => dispatch({ type: "RESET" }),
+		onIncCounter: () => dispatch({ type: actionTypes.INCREMENT }),
+		onDecCounter: () => dispatch({ type: actionTypes.DECREMENT }),
+		onResetCounter: () => dispatch({ type: actionTypes.RESET }),
 	};
 };
 

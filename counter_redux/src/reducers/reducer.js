@@ -14,11 +14,13 @@ const reducer = (state = initialState, action) => {
 			return { ...state, counter: 0 };
 		case actionTypes.STORE:
 			return {
-				counter: 0,
-				results: [
-					...state.results,
-					{ id: state.results.length + 1, value: state.counter },
-				],
+				...state,
+				results: [...state.results, { id: new Date(), value: state.counter }],
+			};
+		case actionTypes.DELETE:
+			return {
+				...state,
+				results: state.results.filter((result) => result.id !== action.payload),
 			};
 		default:
 			return state;

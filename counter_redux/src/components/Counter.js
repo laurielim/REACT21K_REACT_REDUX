@@ -14,12 +14,17 @@ class Counter extends Component {
 					<button onClick={this.props.onDecFiveCounter}>Remove five</button>
 					<button onClick={this.props.onResetCounter}>Reset</button>
 				</div>
-				<button onClick={this.props.storeCounter}>Store the results</button>
+				<button onClick={this.props.onStoreCounter}>Store the results</button>
 				<div>
 					<h2>Store results</h2>
 					<ul>
 						{this.props.storeResults.map((result) => (
-							<li key={result.id}>{result.value}</li>
+							<li
+								key={result.id}
+								onClick={() => this.props.onDeleteResult(result.id)}
+							>
+								{result.value}
+							</li>
 						))}
 					</ul>
 				</div>
@@ -42,7 +47,9 @@ const mapDispateToProps = (dispatch) => {
 		onIncFiveCounter: () => dispatch({ type: actionTypes.ADD_FIVE }),
 		onDecFiveCounter: () => dispatch({ type: actionTypes.REMOVE_FIVE }),
 		onResetCounter: () => dispatch({ type: actionTypes.RESET }),
-		storeCounter: () => dispatch({ type: actionTypes.STORE }),
+		onStoreCounter: () => dispatch({ type: actionTypes.STORE }),
+		onDeleteResult: (payload) =>
+			dispatch({ type: actionTypes.DELETE, payload }),
 	};
 };
 

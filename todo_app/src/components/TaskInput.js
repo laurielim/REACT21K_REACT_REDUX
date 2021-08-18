@@ -6,13 +6,15 @@ import * as actionTypes from "../actions/actions";
 class TaskInput extends Component {
 	render() {
 		return (
-			<form onSubmit={this.props.onTaskSubmit}>
+			<form onSubmit={this.props.onTaskSubmit} className='task-container'>
 				<input
 					type='text'
 					value={this.props.inputValue}
 					onChange={this.props.onTaskInput}
 				/>
-				<button type='submit'>Add</button>
+				<button className='task-btn' type='submit'>
+					Add
+				</button>
 			</form>
 		);
 	}

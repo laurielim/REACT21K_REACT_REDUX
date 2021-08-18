@@ -7,7 +7,7 @@ class TaskList extends Component {
 		return (
 			<ul>
 				{this.props.taskList.map((task) => (
-					<li key={task.id}>
+					<li key={task.id} className='task-container'>
 						<input
 							type='checkbox'
 							name={"task" + task.id}
@@ -15,8 +15,16 @@ class TaskList extends Component {
 							onChange={() => this.props.onTaskUpdate(task.id)}
 							checked={task.isDone}
 						/>
-						<label htmlFor={"task" + task.id}>{task.name}</label>
-						<button onClick={() => this.props.onTaskDelete(task.id)}>
+						<label
+							htmlFor={"task" + task.id}
+							className={task.isDone ? "task task-done" : "task"}
+						>
+							{task.name}
+						</label>
+						<button
+							className={"task-btn"}
+							onClick={() => this.props.onTaskDelete(task.id)}
+						>
 							Delete
 						</button>
 					</li>

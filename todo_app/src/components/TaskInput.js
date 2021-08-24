@@ -8,6 +8,7 @@ class TaskInput extends Component {
 		return (
 			<form onSubmit={this.props.onTaskSubmit} className='task-container'>
 				<input
+					placeholder='Add new task'
 					type='text'
 					value={this.props.inputValue}
 					onChange={this.props.onTaskInput}

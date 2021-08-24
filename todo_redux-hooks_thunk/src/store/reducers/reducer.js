@@ -1,9 +1,31 @@
+import * as actionTypes from "../actions/actions";
+
 const reducer = (state = initialState, action) => {
-	return state;
+	switch (action.type) {
+		case actionTypes.ADD_TASK:
+			return {
+				...state,
+				notes: state.notes.concat({
+					id: action.id,
+					text: action.text,
+					completed: action.completed,
+				}),
+			};
+		case actionTypes.TOGGLE_TASK:
+			return {
+				...state,
+				notes: state.notes.map((note) =>
+					note.id === action.id ? { ...note, completed: !note.completed } : note
+				),
+			};
+
+		default:
+			return state;
+	}
 };
 
 const initialState = {
-	notes: [{ id: 1, text: "something", completed: false }],
+	notes: [{ id: 0, text: "Groceries", completed: false }],
 };
 
 export default reducer;

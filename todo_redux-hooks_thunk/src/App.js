@@ -8,18 +8,18 @@ import NotesContainer from "./containers/NotesContainer";
 import { initializeNotes } from "./store/reducers/reducer";
 
 const App = () => {
-  const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(initializeNotes());
-  }, [dispatch]);
+	useEffect(() => {
+		dispatch(initializeNotes());
+	}, [dispatch]);
 
-  return (
-    <div className="App">
-      <NewNoteContainer />
-      <NotesContainer />
-    </div>
-  );
+	return (
+		<div className='App'>
+			<NewNoteContainer />
+			<NotesContainer />
+		</div>
+	);
 };
 
 export default App;

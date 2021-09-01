@@ -22,3 +22,5 @@ const deleteNote = async (id) => {
 };
 
 const notesServices = { getAll, createNew, deleteNote };
+
+export default notesServices;

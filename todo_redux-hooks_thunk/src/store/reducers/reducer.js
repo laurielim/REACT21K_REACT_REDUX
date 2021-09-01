@@ -23,6 +23,12 @@ const reducer = (state = initialState, action) => {
 				),
 			};
 
+		case actionTypes.DELETE_TASK:
+			return {
+				...state,
+				notes: state.notes.filter((note) => note.id !== action.id),
+			};
+
 		default:
 			return state;
 	}
@@ -55,6 +61,13 @@ export const updateNote = (id) => {
 			type: actionTypes.TOGGLE_TASK,
 			data: note,
 		});
+	};
+};
+
+export const deleteNote = (id) => {
+	return async (dispatch) => {
+		const status = await notesServices.deleteNote(id);
+		if (status === 200) dispatch({ type: actionTypes.DELETE_TASK, id });
 	};
 };
 

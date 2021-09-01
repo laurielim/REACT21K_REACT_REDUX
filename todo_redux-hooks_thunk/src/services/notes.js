@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001/notes";
+const baseUrl = "http://localhost:3001/notes/";
 
 const getAll = async () => {
 	const res = await axios.get(baseUrl);
@@ -16,6 +16,9 @@ const createNew = async (text) => {
 	return res.data;
 };
 
-const notesServices = { getAll, createNew };
+const deleteNote = async (id) => {
+	const res = await axios.delete(baseUrl + id);
+	return res.status;
+};
 
-export default notesServices;
+const notesServices = { getAll, createNew, deleteNote };

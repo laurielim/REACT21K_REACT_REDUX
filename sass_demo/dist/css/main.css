@@ -1,8 +1,35 @@
+@use "sass:color";
 body {
-  background-color: green; }
+  background-color: #ddd; }
 
 h1 {
-  color: yellow; }
+  color: brown;
+  text-transform: uppercase; }
 
-p {
-  color: green; }
+nav li {
+  display: inline-block;
+  width: 100px; }
+
+nav a {
+  color: red; }
+  nav a:hover {
+    color: maroon;
+    transition: all 1s ease; }
+
+.btn, .content .btn-dark {
+  border-radius: 0;
+  padding: 0.5rem; }
+
+.content {
+  min-height: 200px;
+  padding: 2rem; }
+  .content h2 {
+    color: grey; }
+  .content-a {
+    background-color: papayawhip; }
+    .content-a h2 {
+      color: brown; }
+  .content-b {
+    background-color: ghostwhite; }
+  .content .btn-dark {
+    background-color: goldenrod; }
